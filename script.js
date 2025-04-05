@@ -5,10 +5,11 @@ function renderToDoList() {
     let toDoListHTML = '';
 
     for (let i = 0; i < TO_DO_LIST.length; i++) {
-        const TASK_NAME = TO_DO_LIST[i];
+        const TASK_OBJECT = TO_DO_LIST[i];
+        const { name, toDoDate } = TASK_OBJECT;
         const HTML = `
             <p>
-                ${TASK_NAME}
+                ${name} ${toDoDate}
                 <button onclick="TO_DO_LIST.splice(${i}, 1); renderToDoList()">Delete</button>
             </p>
         `;
@@ -21,8 +22,15 @@ function renderToDoList() {
 function addTask() {
     const INPUT_ELEMENT = document.getElementById('js-task-name');
     const TASK_NAME = INPUT_ELEMENT.value;
+    const DATE_INPUT_ELEMENT = document.getElementById('js-to-do-date');
+    const TO_DO_DATE = DATE_INPUT_ELEMENT.value;
 
-    TO_DO_LIST.push(TASK_NAME);
+    TO_DO_LIST.push(
+        {
+            name: TASK_NAME,
+            toDoDate: TO_DO_DATE
+        }
+    );
     INPUT_ELEMENT.value = '';
 
     renderToDoList();
