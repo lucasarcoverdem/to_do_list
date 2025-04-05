@@ -6,7 +6,12 @@ function renderToDoList() {
 
     for (let i = 0; i < TO_DO_LIST.length; i++) {
         const TASK_NAME = TO_DO_LIST[i];
-        const HTML = `<p>${TASK_NAME}</p>`;
+        const HTML = `
+            <p>
+                ${TASK_NAME}
+                <button onclick="TO_DO_LIST.splice(${i}, 1); renderToDoList()">Delete</button>
+            </p>
+        `;
         toDoListHTML += HTML;
     }
 
