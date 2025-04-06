@@ -4,17 +4,18 @@ const ADD_TASK_BUTTON = document.getElementById('js-add-task');
 function renderToDoList() {
     let toDoListHTML = '';
 
-    for (let i = 0; i < TO_DO_LIST.length; i++) {
-        const TASK_OBJECT = TO_DO_LIST[i];
-        const { name, toDoDate } = TASK_OBJECT;
-        const HTML = `
-            <p>
-                ${name} ${toDoDate}
-                <button onclick="TO_DO_LIST.splice(${i}, 1); renderToDoList()">Delete</button>
-            </p>
-        `;
-        toDoListHTML += HTML;
-    }
+    TO_DO_LIST.forEach(
+        (TASK_OBJECT, i) => {
+            const { name, toDoDate } = TASK_OBJECT;
+            const HTML = `
+                <p>
+                    ${name} ${toDoDate}
+                    <button onclick="TO_DO_LIST.splice(${i}, 1); renderToDoList()">Delete</button>
+                </p>
+            `;
+            toDoListHTML += HTML;
+        }
+    );
 
     document.querySelector('.js-to-do-list').innerHTML = toDoListHTML;
 }
