@@ -66,3 +66,12 @@ button:hover {
     margin-top: 2rem;
     text-align: left;
 }
+
+.js-delete-button {
+    background-color: red;
+    transition: 0.3s ease;
+}
+
+.js-delete-button:hover {
+    background-color: rgb(150, 0, 0);
+}

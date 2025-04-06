@@ -10,7 +10,7 @@ function renderToDoList() {
             const HTML = `
                 <p>
                     ${name} ${toDoDate}
-                    <button onclick="TO_DO_LIST.splice(${i}, 1); renderToDoList()">Delete</button>
+                    <button class="js-delete-button" onclick="TO_DO_LIST.splice(${i}, 1); renderToDoList()">Delete</button>
                 </p>
             `;
             toDoListHTML += HTML;
